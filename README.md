@@ -5,7 +5,7 @@ The aim is to a very simple setup for triggering updates or simply letting a sys
 ### Instructions
 Import and subclass `RemoteControlHander`:
 
-```
+```python
 from webremote import RemoteControlHander
 
 class TestHandler(RemoteControlHander):
@@ -26,13 +26,13 @@ class TestHandler(RemoteControlHander):
 
 `set_urls` is called during init and must set `self.urls` to a list of two-tuples with a regex pattern first and a function indentifier second.
 
-urls are evaluated from top to bottom and with `re.fullmatch()`. Parsing of get parameters is not implimented, but could be. Inside your own functions you will have access to the entire Handler object as described in the (python docs)[https://docs.python.org/3/library/http.server.html#http.server.BaseHTTPRequestHandler]
+urls are evaluated from top to bottom with `re.fullmatch()`. Parsing of get parameters is not implimented, but could be. Inside your own functions you will have access to the entire Handler object as described in the (python docs)[https://docs.python.org/3/library/http.server.html#http.server.BaseHTTPRequestHandler]
 
 The response has already been went when your custom code is run, so no rush to get done, but things like redirects and custom responses are not possible.
 
 Now you are ready to run the server like so:
 
-```
+```python
 from http.server import HTTPServer
 
 def run(server_class=HTTPServer, handler_class=TestHandler):
