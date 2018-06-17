@@ -6,7 +6,7 @@ The aim is to a very simple setup for triggering updates or simply letting a sys
 Import and subclass `RemoteControlHander`:
 
 ```python
-from webremote import RemoteControlHander
+from remotecontrol import RemoteControlHander
 
 class TestHandler(RemoteControlHander):
     """testing handler"""
